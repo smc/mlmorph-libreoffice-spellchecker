@@ -25,7 +25,7 @@ build:
 	@sed -i -e s/MLMORPH_VERSION/$(MLMORPH_VERSION)/g build/oxt/description.xml
 
 install: bdist
-	unopkg add dist/$(MLMORPH_PACKAGENAME)-$(MLMORPH_VERSION).oxt
+	unopkg add -f dist/$(MLMORPH_PACKAGENAME)-$(MLMORPH_VERSION).oxt
 
 clean:
 	@rm -rf build dist
