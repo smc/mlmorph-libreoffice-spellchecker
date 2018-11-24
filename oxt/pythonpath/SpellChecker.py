@@ -8,7 +8,6 @@ from mlmorph import Analyser
 from mlmorph_spellchecker import spellcheck, getSuggestions
 
 from SpellAlternatives import SpellAlternatives
-from PropertyManager import PropertyManager
 
 class SpellChecker(unohelper.Base, XServiceInfo, XSpellChecker, XLinguServiceEventBroadcaster, XInitialization, XServiceDisplayName):
 
@@ -47,18 +46,11 @@ class SpellChecker(unohelper.Base, XServiceInfo, XSpellChecker, XLinguServiceEve
 	# From XLinguServiceEventBroadcaster
 	def addLinguServiceEventListener(self, xLstnr):
 		logging.debug("SpellChecker.addLinguServiceEventListener")
-		try:
-			return PropertyManager.getInstance().addLinguServiceEventListener(xLstnr)
-		finally:
-			logging.debug("SpellChecker.addLinguServiceEventListener.done")
-
+		return True
 
 	def removeLinguServiceEventListener(self, xLstnr):
 		logging.debug("SpellChecker.removeLinguServiceEventListener")
-		try:
-			return PropertyManager.getInstance().removeLinguServiceEventListener(xLstnr)
-		finally:
-			logging.debug("SpellChecker.removeLinguServiceEventListener.done")
+		return True
 
 	# From XInitialization
 	def initialize(self, seq):
