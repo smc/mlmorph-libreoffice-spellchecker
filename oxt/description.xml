@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://openoffice.org/extensions/description/2006"
+             xmlns:d="http://openoffice.org/extensions/description/2006"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <version value="MLMORPH_VERSION" />
+  <identifier value="org.smc.lomlmorph" />
+
+  <display-name>
+    <name lang="en-US">Spellchecker based on mlmorph</name>
+  </display-name>
+
+  <publisher>
+    <name xlink:href="https://morph.smc.org.in" lang="en">Swathanthra Malayalam Computing</name>
+  </publisher>
+
+  <icon>
+    <default xlink:href="icon.png" />
+  </icon>
+
+</description>
