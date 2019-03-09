@@ -17,7 +17,7 @@ sdist:
 	@mkdir -p dist
 	tar -czf dist/$(MLMORPH_PACKAGENAME)-$(MLMORPH_VERSION).tar.gz oxt $(SRCDIST)
 
-build:
+build: clean
 	@mkdir -p build
 	@cp -rf oxt build/
 	@cp -r README.md LICENSE.txt build/
