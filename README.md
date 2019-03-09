@@ -19,6 +19,10 @@ Installation
 ------------
 Run ```make install```
 
+![Libreoffice language options](doc/mlmorph-libreoffice-options.jpg)
+
+![Spellchecking in Libreoffice](doc/mlmorph-libreoffice-spellcheck.png)
+
 Thanks
 ------
 
