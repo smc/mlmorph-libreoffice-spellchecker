@@ -3,16 +3,14 @@ import unohelper
 from com.sun.star.linguistic2 import XSpellChecker, XLinguServiceEventBroadcaster
 from com.sun.star.lang import Locale
 from com.sun.star.lang import XServiceInfo, XInitialization, XServiceDisplayName
-
-from mlmorph import Analyser
-from mlmorph_spellchecker import spellcheck, getSuggestions
+from mlmorph_spellchecker import SpellChecker as mlmorph_spellchecker
 
 from SpellAlternatives import SpellAlternatives
 
 class SpellChecker(unohelper.Base, XServiceInfo, XSpellChecker, XLinguServiceEventBroadcaster, XInitialization, XServiceDisplayName):
 
 	def __init__(self, ctx, *args):
-		self.analyser = Analyser()
+		self.spellchecker = mlmorph_spellchecker()
 		logging.debug("SpellChecker.__init__")
 
 	# From XServiceInfo
@@ -37,10 +35,10 @@ class SpellChecker(unohelper.Base, XServiceInfo, XSpellChecker, XLinguServiceEve
 
 	# From XSpellChecker
 	def isValid(self, word, locale, properties):
-		return spellcheck(word, self.analyser)
+		return self.spellchecker.spellcheck(word)
 
 	def spell(self, word, locale, properties):
-		suggestions = getSuggestions(word, self.analyser)
+		suggestions = self.spellchecker.candidates(word)
 		return SpellAlternatives(word, suggestions, locale)
 
 	# From XLinguServiceEventBroadcaster
